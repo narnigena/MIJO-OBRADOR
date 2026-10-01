@@ -1,5 +1,4 @@
 import { Routes, Route, Link, NavLink } from "react-router-dom";
-import { useState } from "react";
 import Home from "./pages/Home.jsx";
 import Historia from "./pages/Historia.jsx";
 import Productos from "./pages/Productos.jsx";
@@ -8,6 +7,8 @@ import Admin from "./pages/Admin.jsx";
 import ProductoForm from "./pages/ProductoForm.jsx";
 import Carrito from "./pages/Carrito.jsx";
 import { CartProvider, useCart } from "./context/CartContext.jsx";
+import Login from "./pages/Login.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 function Header() {
   const { totalItems } = useCart();
@@ -20,7 +21,7 @@ function Header() {
         <NavLink to="/">Inicio</NavLink>
         <NavLink to="/historia">Nuestra historia</NavLink>
         <NavLink to="/productos">Productos</NavLink>
-        <NavLink to="/admin">Administración</NavLink>
+        <NavLink to="/login">Login</NavLink>
         <Link className="cart-link" to="/carrito">
           Pedido ({totalItems})
         </Link>
@@ -41,9 +42,36 @@ function App() {
           <Route path="/productos" element={<Productos />} />
           <Route path="/productos/:id" element={<ProductoDetalle />} />
           <Route path="/carrito" element={<Carrito />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/nuevo" element={<ProductoForm />} />
-          <Route path="/admin/editar/:id" element={<ProductoForm />} />
+
+          <Route path="/login" element={<Login />} />
+
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/nuevo"
+              element={
+                <ProtectedRoute>
+                  <ProductoForm />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/editar/:id"
+              element={
+                <ProtectedRoute>
+                  <ProductoForm />
+                </ProtectedRoute>
+              }
+            />
+
         </Routes>
       </main>
 

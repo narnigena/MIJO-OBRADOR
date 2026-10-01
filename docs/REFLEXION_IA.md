@@ -28,4 +28,4 @@ El código generado debe ser comprobado antes de integrarse. Se han revisado esp
 El proceso permite comprender mejor cómo se relacionan:
 React → API REST → Express → Mongoose → MongoDB.
 
-La IA facilita la iteración, pero las decisiones de arquitectura, diseño y adaptación al proyecto corresponden al desarrollo realizado para esta PEC.
+La IA facilita la iteración, pero las decisiones de arquitectura, diseño y adaptación al proyecto corresponden al desarrollo realizado por mí misma, comprendiendo que debo hacer en cada archivo y qué ejecutar para su funcionamiento.

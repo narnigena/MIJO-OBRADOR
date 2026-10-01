@@ -5,8 +5,7 @@ GET http://localhost:4000/api/health
 GET http://localhost:4000/api/productos
 
 ### Obtener producto por ID
-# Sustituye ID por un ObjectId real
-GET http://localhost:4000/api/productos/ID
+GET http://localhost:4000/api/productos/
 
 ### Crear producto
 POST http://localhost:4000/api/productos
@@ -23,9 +22,34 @@ Content-Type: application/json
   "destacado": false
 }
 
+### Crear producto con TOKEN
+POST http://localhost:4000/api/productos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYmU3ZDE5MzJkNWM5YzQ3MmE0YWY0OSIsImVtYWlsIjoiYWRtaW5Ab2JyYWRvci5jb20iLCJub21icmUiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzkwODczMzY5LCJleHAiOjE3OTA4ODA1Njl9.R-1W-sU9yDghg0DG4odUrUKdQoMhOefzWG3YeNKEVG4
+Content-Type: application/json
+
+{
+  "nombre": "Pan con chocolate",
+  "descripcion": "Pan artesanal elaborado en el obrador.",
+  "precio": 3.50,
+  "categoria": "Pan",
+  "ingredientes": ["Harina", "Agua", "Aceite de oliva", "Sal"],
+  "imagen": "https://images.unsplash.com/photo-1509440159596-0249088772ff",
+  "disponible": true,
+  "destacado": false
+}
+
+###
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@obrador.com",
+  "password": "Obrador2026"
+}
+
 ### Actualizar producto
-# Sustituye ID por un ObjectId real
-PUT http://localhost:4000/api/productos/ID
+PUT http://localhost:4000/api/productos/6abe901c532b89a5f4333774
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYmU3ZDE5MzJkNWM5YzQ3MmE0YWY0OSIsImVtYWlsIjoiYWRtaW5Ab2JyYWRvci5jb20iLCJub21icmUiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzkwODczODU5LCJleHAiOjE3OTA4ODEwNTl9.Yf670SfWiRFTNq4lWACDxPtB7qVn1_6Y3tdEeK1CBuM
 Content-Type: application/json
 
 {
@@ -34,5 +58,6 @@ Content-Type: application/json
 }
 
 ### Eliminar producto
-# Sustituye ID por un ObjectId real
 DELETE http://localhost:4000/api/productos/ID
+Authorization: Bearer 6abe8f4c532b89a5f4333772
+
