@@ -25,13 +25,17 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/productos", productosRoutes);
 
+//Autenticacion
+app.use("/api/auth", authRoutes);
+
+//Ruta no encontrada
 app.use((req, res) => {
   res.status(404).json({
     error: "Ruta no encontrada"
   });
 });
 
-app.use("/api/auth", authRoutes);
+
 
 app.use((error, req, res, next) => {
   console.error(error);
