@@ -1,0 +1,30 @@
+PEC 5 OBRADOR MARTOS
+====================
+
+1. Copia backend/.env.example a backend/.env
+2. Pon tu URI de MongoDB Atlas en MONGODB_URI.
+3. Terminal 1:
+   cd backend
+   npm install
+   npm run dev
+
+4. Terminal 2:
+   cd frontend
+   npm install
+   copia .env.example a .env
+   npm run dev
+
+5. Abre:
+   http://localhost:5173
+
+6. API:
+   http://localhost:4000/api/health
+
+7. Para cargar datos de ejemplo:
+   cd backend
+   node src/seed.js
+
+IMPORTANTE:
+- No subas .env a GitHub.
+- Sustituye las imágenes de ejemplo por las fotografías definitivas del proyecto.
+- El diseño puede adaptarse posteriormente al diseño de Google Stitch sin tocar el contrato de la API.

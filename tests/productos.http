@@ -1,0 +1,38 @@
+### Health
+GET http://localhost:4000/api/health
+
+### Obtener productos
+GET http://localhost:4000/api/productos
+
+### Obtener producto por ID
+# Sustituye ID por un ObjectId real
+GET http://localhost:4000/api/productos/ID
+
+### Crear producto
+POST http://localhost:4000/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "Pan de aceite",
+  "descripcion": "Pan artesanal elaborado en el obrador.",
+  "precio": 3.50,
+  "categoria": "Pan",
+  "ingredientes": ["Harina", "Agua", "Aceite de oliva", "Sal"],
+  "imagen": "https://images.unsplash.com/photo-1509440159596-0249088772ff",
+  "disponible": true,
+  "destacado": false
+}
+
+### Actualizar producto
+# Sustituye ID por un ObjectId real
+PUT http://localhost:4000/api/productos/ID
+Content-Type: application/json
+
+{
+  "precio": 3.90,
+  "destacado": true
+}
+
+### Eliminar producto
+# Sustituye ID por un ObjectId real
+DELETE http://localhost:4000/api/productos/ID

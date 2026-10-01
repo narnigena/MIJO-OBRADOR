@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "PEC5 Obrador Martos",
+    "_postman_id": "7c4db8a1-7a8c-4aef-9f8f-pec5obrador",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000"
+    },
+    {
+      "key": "productoId",
+      "value": "REEMPLAZAR_ID"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Obtener productos",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/productos"
+      }
+    },
+    {
+      "name": "Obtener producto",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/productos/{{productoId}}"
+      }
+    },
+    {
+      "name": "Crear producto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\": \"Pan de aceite\", \"descripcion\": \"Pan artesanal elaborado en el obrador.\", \"precio\": 3.5, \"categoria\": \"Pan\", \"ingredientes\": [\"Harina\", \"Agua\", \"Aceite de oliva\", \"Sal\"], \"imagen\": \"\", \"disponible\": true, \"destacado\": false}"
+        },
+        "url": "{{baseUrl}}/api/productos"
+      }
+    },
+    {
+      "name": "Actualizar producto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"precio\": 3.9, \"destacado\": true}"
+        },
+        "url": "{{baseUrl}}/api/productos/{{productoId}}"
+      }
+    },
+    {
+      "name": "Eliminar producto",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/productos/{{productoId}}"
+      }
+    }
+  ]
+}
