@@ -1,5 +1,8 @@
+//script que introduce los productos de prueba en MongoDB
 import dotenv from "dotenv";
+
 dotenv.config();
+
 
 import conectarDB from "./config/db.js";
 import Producto from "./models/Producto.js";

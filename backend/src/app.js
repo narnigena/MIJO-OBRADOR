@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
+
 import productosRoutes from "./routes/productos.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
 
@@ -9,7 +11,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({
-    proyecto: "Obrador Martos",
+    proyecto: "Mijo Obrador",
     mensaje: "API funcionando"
   });
 });
@@ -28,6 +30,8 @@ app.use((req, res) => {
     error: "Ruta no encontrada"
   });
 });
+
+app.use("/api/auth", authRoutes);
 
 app.use((error, req, res, next) => {
   console.error(error);
